@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NVIDIA GPU Roadmap with Tooltips</title>
+  <title>NVIDIA GPU Roadmap</title>
   <style>
     * {
       box-sizing: border-box;
@@ -202,26 +202,26 @@
           <td>Accelerator</td>
           <td>
             <span class="tooltip">H100 (SXM)
-              <span class="tooltiptext">NVIDIA's flagship Hopper GPU delivered in SXM form factor for high-performance computing and AI workloads, featuring 80 GB HBM3 memory.</span>
+              <span class="tooltiptext">NVIDIA's flagship Hopper GPU designed for high-performance computing and AI workloads, featuring 80 GB HBM3 memory.</span>
             </span>
           </td>
           <td>
             <span class="tooltip">H200
-              <span class="tooltiptext">Enhanced version of Hopper architecture with upgraded HBM3E memory (141 GB) and higher memory bandwidth, designed for AI training and inference workloads.</span>
+              <span class="tooltiptext">Enhanced version of Hopper architecture with upgraded memory (141 GB HBM3E) and higher memory bandwidth, designed for AI training and inference workloads.</span>
             </span>
           </td>
           <td>
             <span class="tooltip">B200/ GB200
-              <span class="tooltiptext">Blackwell GPU (B200) and its CPU-integrated version ( GB200). First dual-die GPU design from NVIDIA, offering significant gains in AI compute performance and energy efficiency.</span>
+              <span class="tooltiptext">Blackwell GPU (B200) and its CPU-integrated version (GB200). First dual-die (using two connected silicon chips in one package) GPU design from NVIDIA, offering gains in AI compute performance and energy efficiency.</span>
             </span>
           </td>
           <td>
             <span class="tooltip"> GB300 (Ultra)
-              <span class="tooltiptext">Enhanced Blackwell generation GPU with 'Ultra' configuration, featuring higher performance and memory capacity compared to  GB200.</span>
+              <span class="tooltiptext">Enhanced Blackwell generation GPU with 'Ultra' configuration, featuring higher performance and memory capacity compared to GB200.</span>
             </span>
           </td>
           <td>
-            <span class="tooltip">B300 (single die B300A)
+            <span class="tooltip">B300
               <span class="tooltiptext">Single-die variant of the B300 architecture, designed for more cost-effective deployments while maintaining Blackwell architectural advantages.</span>
             </span>
           </td>
@@ -255,42 +255,41 @@
         <tr>
           <td>
             <span class="tooltip important">Foundry node
-              <span class="tooltiptext">The semiconductor manufacturing process technology used to produce the chip. Smaller numbers (e.g., 4N vs 3N) generally indicate more advanced processes with higher transistor density and better power efficiency.</span>
+              <span class="tooltiptext">The semiconductor manufacturing process technology used to produce the chip. The number (e.g., 4 in 4N) represents nanometers - smaller numbers indicate more advanced processes with higher transistor density and better power efficiency.</span>
             </span>
           </td>
           <td colspan="2">
             <span class="tooltip">4N
-              <span class="tooltiptext">TSMC's 4nm process node customized for NVIDIA. A refinement of 5nm technology offering better performance and power efficiency than the standard N4 node.</span>
+              <span class="tooltiptext">TSMC's 4-nanometer (4nm) process node customised for NVIDIA.</span>
             </span>
           </td>
           <td colspan="3">
             <span class="tooltip">4NP
-              <span class="tooltiptext">An enhanced version of TSMC's 4nm process with performance and efficiency improvements over the base 4N node. Used for the Blackwell generation GPUs.</span>
+              <span class="tooltiptext">An enhanced version of TSMC's 4-nanometer (4nm) process with performance and efficiency improvements over the base 4N node. Used for the Blackwell generation GPUs.</span>
             </span>
           </td>
           <td colspan="2">
             <span class="tooltip">N3P (3NP)
-              <span class="tooltiptext">TSMC's 3nm enhanced process node, offering significant density, performance, and efficiency advantages over 4nm nodes. Expected to be used for Rubin architecture GPUs.</span>
-            </span>
+              <span class="tooltiptext">TSMC's 3-nanometer (3nm) enhanced process node, offering significant density, performance, and efficiency advantages over 4nm nodes. Expected to be used for Rubin architecture GPUs.</span>
           </td>
         </tr>
         
         <tr>
           <td>
-            <span class="tooltip">Logic die configuration
-              <span class="tooltiptext">The arrangement of silicon dies within the GPU package. Modern high-performance GPUs often use multiple dies to achieve larger overall chip sizes than would be possible with single-die designs.</span>
+            <span class="tooltip">Die configuration
+              <span class="tooltiptext">The arrangement of silicon dies within the GPU package. A die is a small block of semiconducting material on which a circuit is fabricated. Modern high-performance GPUs often use multiple dies to achieve larger overall chip sizes than would be possible with single-die designs.</span>
             </span>
           </td>
-          <td colspan="2">1 x Reticle Sized GPU</td>
-          <td colspan="3">2 x Reticle Sized GPU</td>
-          <td>2 x Reticle Sized GPU, 2x I/O <span class="tooltip important">chiplet <span class="tooltiptext">A small, modular piece of silicon used as a building block in modern chip design. Multiple chiplets combine in a single package to create larger processors while improving manufacturing yield and performance.</span></span></td>
-          <td>4 x Reticle Sized GPU, 2x I/O chiplet</td>
+          <td colspan="2">1 x GPU</td>
+          <td colspan="3">2 x GPU</td>
+          <td>2 x GPU, 2x I/O <span class="tooltip">chiplet <span class="tooltiptext">A small, modular piece of silicon used as a building block in modern chip design. Multiple chiplets combine in a single package to create larger processors while improving manufacturing yield and performance.</span></span></td>
+          <td>4 x GPU, 2x I/O chiplet</td>
         </tr>
         
         <tr>
           <td>
             <span class="tooltip important">FP4 PFLOPs
-              <span class="tooltiptext">Floating-point performance measured in petaFLOPs (quadrillions of operations per second) using 4-bit precision, optimized for AI workloads. 'Dense' refers to non-sparse matrix operations.</span>
+              <span class="tooltiptext">Floating-point performance measured in petaFLOPs (quadrillions of operations per second) using 4-bit precision (FP4).</span>
             </span>
           </td>
           <td colspan="2">4*</td>
@@ -314,7 +313,7 @@
           <td>HBM3E</td>
           <td>
             <span class="tooltip">HBM4
-              <span class="tooltiptext">Fourth generation High Bandwidth Memory, offering higher capacity, bandwidth, and energy efficiency compared to HBM3E. Expected to debut with the Rubin architecture.</span>
+              <span class="tooltiptext">Fourth generation HBM, offering higher capacity, bandwidth, and energy efficiency compared to HBM3E. Expected to debut with the Rubin architecture.</span>
             </span>
           </td>
           <td>
@@ -357,7 +356,7 @@
         <tr>
           <td>
             <span class="tooltip important">HBM bandwidth
-              <span class="tooltiptext">The maximum data transfer rate between the GPU and its High Bandwidth Memory, measured in terabytes per second ( TB/s). Higher bandwidth allows the GPU to access data more quickly, critical for AI workloads.</span>
+              <span class="tooltiptext">The maximum data transfer rate between the GPU and its HBM, measured in terabytes per second (TB/s). Higher bandwidth allows the GPU to access data more quickly.</span>
             </span>
           </td>
           <td>3.35 TB/s</td>
@@ -371,7 +370,7 @@
         <tr>
           <td>
             <span class="tooltip">Packaging
-              <span class="tooltiptext">The technology used to integrate multiple semiconductor dies and components into a single package. Advanced packaging enables heterogeneous integration of different chips.</span>
+              <span class="tooltiptext">The technology used to integrate multiple semiconductor dies and components into a single package.</span>
             </span>
           </td>
           <td colspan="2">
@@ -390,7 +389,7 @@
         <tr>
           <td>
             <span class="tooltip">SerDes speed
-              <span class="tooltiptext">Serializer/Deserializer speed, measured in gigabits per second. Determines how fast data can be transmitted between the GPU and other components in the system.</span>
+              <span class="tooltiptext">Serialiser/Deserialiser speed, measured in gigabits per second. Determines how fast data can be transmitted between the GPU and other components in the system.</span>
             </span>
           </td>
           <td colspan="2">112 Gb/s uni-di</td>
@@ -429,14 +428,14 @@
               <span class="tooltiptext">NVIDIA NVLink system with 8 GPUs in a single server node. Designed for high-performance AI and HPC workloads.</span>
             </span>
           </td>
-          <td>
+          <td colspan="2">
             <span class="tooltip">NVL72
               <span class="tooltiptext">NVIDIA NVLink system with 72 GPUs across multiple nodes. 144 compute chiplets total (2 per GPU). Enables massive AI model training and inference.</span>
             </span>
           </td>
           <td>NVL16</td>
           <td>NVL144<br>144 compute chiplets, 72 GPUs</td>
-          <td colspan="2">
+          <td>
             <span class="tooltip">NVL576
               <span class="tooltiptext">NVIDIA's largest scale system with 576 compute chiplets across 144 GPUs. Designed for the most demanding AI and scientific computing workloads requiring exascale performance.</span>
             </span>
@@ -445,12 +444,12 @@
         <tr>
           <td>
             <span class="tooltip">Form factor supported
-                <span class="tooltiptext">The physical configuration and standardized design of the GPU system. Different form factors support various cooling, power, and interconnect requirements for different deployment scenarios.</span>
+                <span class="tooltiptext">The physical configuration and standardised design of the GPU system. Different form factors support various cooling, power, and interconnect requirements.</span>
             </span>
           </td>
           <td colspan="2">
             <span class="tooltip">HGX
-              <span class="tooltiptext">NVIDIA's server platform for AI training and inference. A standardized board design that hosts multiple GPUs with NVLink interconnect.</span>
+              <span class="tooltiptext">NVIDIA's server platform for AI training and inference. A standardised board design that hosts multiple GPUs with NVLink interconnect.</span>
             </span>
           </td>
           <td colspan="3">
@@ -466,7 +465,11 @@
         </tr>
         
         <tr>
-          <td>Number of GPU packages</td>
+          <td>
+            <span class="tooltip">Number of GPU packages
+              <span class="tooltiptext">The total count of physical GPU packages (modules) in a system. Each package contains one or more GPU dies along with related components in a single unit that can be installed in a server.</span>
+            </span>
+          </td>
           <td colspan="2">8</td>
           <td>72</td>
           <td>72</td>
@@ -476,7 +479,11 @@
         </tr>
         
         <tr>
-          <td>Number of GPU dies</td>
+          <td>
+            <span class="tooltip">Number of GPU dies
+              <span class="tooltiptext">The total count of individual GPU silicon chips across all packages in a system. This is calculated as the number of dies per chip multiplied by the number of packages.</span>
+            </span>
+          </td>
           <td colspan="2">8</td>
           <td>144</td>
           <td>144</td>
@@ -505,7 +512,7 @@
         <tr>
           <td>
             <span class="tooltip important">Aggregate FP4 PFLOPs
-              <span class="tooltiptext">Total compute performance across the entire system.</span>
+              <span class="tooltiptext">Total compute performance of all GPUs in the system.</span>
             </span>
           </td>
           <td colspan="2">32*</td>
@@ -519,7 +526,7 @@
         <tr>
           <td>
             <span class="tooltip important">Aggregate HBM capacity
-                <span class="tooltiptext">Total maximum data transfer rate across the entire system.</span>
+                <span class="tooltiptext">Total maximum memory storage of all GPUs in the system.</span>
             </span>
           </td>
           <td>14 TB</td>
@@ -534,7 +541,7 @@
         <tr>
           <td>
             <span class="tooltip important">Aggregate HBM bandwidth
-                <span class="tooltiptext">The combined memory bandwidth of all GPUs in the system, measured in terabytes per second (TB/s). Higher aggregate bandwidth allows the system to process larger datasets more efficiently.</span>
+                <span class="tooltiptext">Total memory bandwidth of all GPUs in the system.</span>
             </span>
           </td>
           <td>27 TB/s</td>
