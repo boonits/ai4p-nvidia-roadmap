@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NVIDIA GPU Roadmap with Tooltips</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    
+    .grid-container {
+      background-color: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 10px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    
+    /* Table styles */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 13px;
+    }
+    
+    th, td {
+      padding: 6px 4px;
+      text-align: center;
+      border: 1px solid #c1c1c1;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f8f8f8;
+    }
+    
+    /* Row styling */
+    .header-row {
+      background-color: #134f5c;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .header-row th {
+      border: 1px solid #0c3741;
+    }
+    
+    .category-row {
+      font-weight: bold;
+      text-align: center;
+      background-color: #134f5c;
+    }
+    
+    .category-row td {
+      text-align: center;
+      padding-left: 15px;
+    }
+    
+    .nvidia-row {
+      background-color: #efefef;
+      font-weight: bold;
+    }
+    
+    /* First column styling */
+    td:first-child {
+      font-weight: bold;
+      text-align: center;
+      background-color: #f2f2f2;
+      padding-left: 15px;
+    }
+
+    .category-row td:first-child {
+        background-color: #d9d9d9; /* or whatever color you want for category rows */
+    }
+    
+    /* Tooltip styles */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted;
+      cursor: help;
+    }
+
+        /* Tooltip styles */
+    .tooltip.important {
+      color: #0c6478;
+      font-weight: bold;
+    }
+    
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 280px;
+      background-color: #2c3e50;
+      color: #fff;
+      text-align: left;
+      border-radius: 6px;
+      padding: 12px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -140px;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: translateY(10px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-weight: normal;
+      font-size: 0.92em;
+      line-height: 1.5;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -8px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: #2c3e50 transparent transparent transparent;
+    }
+    
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .tooltip .tooltiptext.active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Source citation styling */
+    .source-citation {
+      font-size: 11px;
+      color: #666;
+      text-align: left;
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+    
+    .source-citation a {
+      color: #0c6478;
+      text-decoration: none;
+    }
+    
+    .source-citation a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <table>
+      <thead>
+        <tr class="header-row">
+          <th></th>
+          <th>2022</th>
+          <th>2023</th>
+          <th>2024</th>
+          <th colspan="2">2025</th>
+          <th>2026</th>
+          <th>2027</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="category-row">
+            <td colspan="8">Chip and Package Level</td>
+          </tr>
+
+        <tr class="nvidia-row">
+          <td>Architecture</td>
+          <td colspan="2">
+            <span class="tooltip">Hopper
+              <span class="tooltiptext">NVIDIA's compute architecture named after Grace Hopper, introduced in 2022. Featuring significant improvements in AI performance with Transformer Engine and the first FP8 precision for AI acceleration.</span>
+            </span>
+          </td>
+          <td colspan="3">
+            <span class="tooltip">Blackwell
+              <span class="tooltiptext">NVIDIA's architecture named after statistician David Blackwell, featuring a multi-chip module design with two GPU dies and a focus on AI/ML workloads with enhanced performance per watt compared to Hopper.</span>
+            </span>
+          </td>
+          <td colspan="2">
+            <span class="tooltip">Rubin
+              <span class="tooltiptext">NVIDIA's projected next-generation architecture after Blackwell, named after astronomer Vera Rubin. Expected to feature TSMC's 3nm process technology and significant architectural advances.</span>
+            </span>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Accelerator</td>
+          <td>
+            <span class="tooltip">H100 (SXM)
+              <span class="tooltiptext">NVIDIA's flagship Hopper GPU delivered in SXM form factor for high-performance computing and AI workloads, featuring 80 GB HBM3 memory.</span>
+            </span>
+          </td>
+          <td>
+            <span class="tooltip">H200
+              <span class="tooltiptext">Enhanced version of Hopper architecture with upgraded HBM3E memory (141 GB) and higher memory bandwidth, designed for AI training and inference workloads.</span>
+            </span>
+          </td>
+          <td>
+            <span class="tooltip">B200/ GB200
+              <span class="tooltiptext">Blackwell GPU (B200) and its CPU-integrated version ( GB200). First dual-die GPU design from NVIDIA, offering significant gains in AI compute performance and energy efficiency.</span>
+            </span>
+          </td>
+          <td>
+            <span class="tooltip"> GB300 (Ultra)
+              <span class="tooltiptext">Enhanced Blackwell generation GPU with 'Ultra' configuration, featuring higher performance and memory capacity compared to  GB200.</span>
+            </span>
+          </td>
+          <td>
+            <span class="tooltip">B300 (single die B300A)
+              <span class="tooltiptext">Single-die variant of the B300 architecture, designed for more cost-effective deployments while maintaining Blackwell architectural advantages.</span>
+            </span>
+          </td>
+          <td>
+            <span class="tooltip">VR200
+              <span class="tooltiptext">First-generation Rubin architecture GPU, named for Vera Rubin. Expected to deliver substantial performance increases over the Blackwell generation.</span>
+            </span>
+          </td>
+          <td>
+            <span class="tooltip">VR300 (Ultra)
+              <span class="tooltiptext">Enhanced Rubin architecture with 'Ultra' configuration, featuring 4 GPU dies and highest performance in the NVIDIA data center GPU lineup.</span>
+            </span>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip">GPU TDP
+              <span class="tooltiptext">Thermal Design Power, measured in watts. Represents the maximum amount of heat generated by the GPU that the cooling system is designed to dissipate.</span>
+            </span>
+          </td>
+          <td>700 W</td>
+          <td>700 W</td>
+          <td>700 / 1,200 W</td>
+          <td>1,400 W</td>
+          <td>600 W</td>
+          <td>1,800 W</td>
+          <td>3,600 W</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip important">Foundry node
+              <span class="tooltiptext">The semiconductor manufacturing process technology used to produce the chip. Smaller numbers (e.g., 4N vs 3N) generally indicate more advanced processes with higher transistor density and better power efficiency.</span>
+            </span>
+          </td>
+          <td colspan="2">
+            <span class="tooltip">4N
+              <span class="tooltiptext">TSMC's 4nm process node customized for NVIDIA. A refinement of 5nm technology offering better performance and power efficiency than the standard N4 node.</span>
+            </span>
+          </td>
+          <td colspan="3">
+            <span class="tooltip">4NP
+              <span class="tooltiptext">An enhanced version of TSMC's 4nm process with performance and efficiency improvements over the base 4N node. Used for the Blackwell generation GPUs.</span>
+            </span>
+          </td>
+          <td colspan="2">
+            <span class="tooltip">N3P (3NP)
+              <span class="tooltiptext">TSMC's 3nm enhanced process node, offering significant density, performance, and efficiency advantages over 4nm nodes. Expected to be used for Rubin architecture GPUs.</span>
+            </span>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip">Logic die configuration
+              <span class="tooltiptext">The arrangement of silicon dies within the GPU package. Modern high-performance GPUs often use multiple dies to achieve larger overall chip sizes than would be possible with single-die designs.</span>
+            </span>
+          </td>
+          <td colspan="2">1 x Reticle Sized GPU</td>
+          <td colspan="3">2 x Reticle Sized GPU</td>
+          <td>2 x Reticle Sized GPU, 2x I/O <span class="tooltip important">chiplet <span class="tooltiptext">A small, modular piece of silicon used as a building block in modern chip design. Multiple chiplets combine in a single package to create larger processors while improving manufacturing yield and performance.</span></span></td>
+          <td>4 x Reticle Sized GPU, 2x I/O chiplet</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip important">FP4 PFLOPs
+              <span class="tooltiptext">Floating-point performance measured in petaFLOPs (quadrillions of operations per second) using 4-bit precision, optimized for AI workloads. 'Dense' refers to non-sparse matrix operations.</span>
+            </span>
+          </td>
+          <td colspan="2">4*</td>
+          <td>10</td>
+          <td>15</td>
+          <td>4.6</td>
+          <td>50</td>
+          <td>100</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip important">HBM generation
+              <span class="tooltiptext">High Bandwidth Memory, a specialised and ultra-fast memory component that is specifically designed for high-performance computing and AI workloads. It allows for faster data transfer and improved memory access, enabling efficient data processing and storage.</span>
+            </span>
+          </td>
+          <td>HBM3</td>
+          <td>HBM3E</td>
+          <td>HBM3E</td>
+          <td>HBM3E</td>
+          <td>HBM3E</td>
+          <td>
+            <span class="tooltip">HBM4
+              <span class="tooltiptext">Fourth generation High Bandwidth Memory, offering higher capacity, bandwidth, and energy efficiency compared to HBM3E. Expected to debut with the Rubin architecture.</span>
+            </span>
+          </td>
+          <td>
+            <span class="tooltip">HBM4E
+              <span class="tooltiptext">Enhanced version of HBM4 with higher capacity and bandwidth, allowing the VR300 GPU to have 1 TB of ultra-high-speed memory.</span>
+            </span>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip important">HBM stacks
+              <span class="tooltiptext">The number of individual memory die stacks in the GPU package. Each stack contains multiple layers of memory dies stacked vertically to increase capacity while maintaining a small footprint.
+              </span>
+            </span>
+        </td>
+          <td>5</td>
+          <td>6</td>
+          <td>8</td>
+          <td>4</td>
+          <td>8</td>
+          <td colspan="2">16</td>
+        </tr>
+        
+        <tr>
+            <td>
+              <span class="tooltip important">HBM capacity
+                <span class="tooltiptext">The total amount of data that can be stored in memory at one time. Higher capacity allows AI systems to work with larger models and datasets without accessing slower storage.</span>
+              </span>
+            </td>
+            <td>80 GB</td>
+            <td>141 GB</td>
+            <td>192 GB</td>
+            <td>288 GB</td>
+            <td>144 GB</td>
+            <td>288 GB</td>
+            <td>1,024 GB</td>
+          </tr>
+
+        <tr>
+          <td>
+            <span class="tooltip important">HBM bandwidth
+              <span class="tooltiptext">The maximum data transfer rate between the GPU and its High Bandwidth Memory, measured in terabytes per second ( TB/s). Higher bandwidth allows the GPU to access data more quickly, critical for AI workloads.</span>
+            </span>
+          </td>
+          <td>3.35 TB/s</td>
+          <td>4.8 TB/s</td>
+          <td colspan="2">8 TB/s</td>
+          <td>4 TB/s</td>
+          <td>13 TB/s</td>
+          <td>32 TB/s</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip">Packaging
+              <span class="tooltiptext">The technology used to integrate multiple semiconductor dies and components into a single package. Advanced packaging enables heterogeneous integration of different chips.</span>
+            </span>
+          </td>
+          <td colspan="2">
+            <span class="tooltip">CoWoS-S
+              <span class="tooltiptext">Chip-on-Wafer-on-Substrate Standard. TSMC's advanced packaging technology that places chips on silicon interposers for high-bandwidth connectivity between GPU and HBM.</span>
+            </span>
+          </td>
+          <td colspan="3">
+            <span class="tooltip">CoWoS-L
+              <span class="tooltiptext">Chip-on-Wafer-on-Substrate Large. An enhanced version of CoWoS that supports larger substrate areas, enabling integration of more chiplets and memory stacks.</span>
+            </span>
+          </td>
+          <td colspan="2">CoWoS-L</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip">SerDes speed
+              <span class="tooltiptext">Serializer/Deserializer speed, measured in gigabits per second. Determines how fast data can be transmitted between the GPU and other components in the system.</span>
+            </span>
+          </td>
+          <td colspan="2">112 Gb/s uni-di</td>
+          <td colspan="3">224 Gb/s uni-di</td>
+          <td>224 Gb/s uni-di</td>
+          <td>224 Gb/s uni-di</td>
+        </tr>
+        
+        <tr>
+          <td>Nvidia CPU</td>
+          <td colspan="2">
+            <span class="tooltip">Grace
+              <span class="tooltiptext">NVIDIA's first data center CPU, based on ARM architecture and named after computing pioneer Grace Hopper. Designed for AI, HPC, and data-intensive workloads.</span>
+            </span>
+          </td>
+          <td colspan="3">Grace</td>
+          <td colspan="2">
+            <span class="tooltip">Vera
+              <span class="tooltiptext">NVIDIA's next-generation CPU following Grace, named after astronomer Vera Rubin. Expected to offer significant performance and efficiency improvements.</span>
+            </span>
+          </td>
+        </tr>
+        
+        <tr class="category-row">
+          <td colspan="8">System Form Factor</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip">Maximum system density
+              <span class="tooltiptext">The highest number of GPUs that can be interconnected in a single system, defining the maximum computational capacity available for large-scale AI training and inference.</span>
+            </span>
+          </td>
+          <td colspan="2">
+            <span class="tooltip">NVL8
+              <span class="tooltiptext">NVIDIA NVLink system with 8 GPUs in a single server node. Designed for high-performance AI and HPC workloads.</span>
+            </span>
+          </td>
+          <td>
+            <span class="tooltip">NVL72
+              <span class="tooltiptext">NVIDIA NVLink system with 72 GPUs across multiple nodes. 144 compute chiplets total (2 per GPU). Enables massive AI model training and inference.</span>
+            </span>
+          </td>
+          <td>NVL16</td>
+          <td>NVL144<br>144 compute chiplets, 72 GPUs</td>
+          <td colspan="2">
+            <span class="tooltip">NVL576
+              <span class="tooltiptext">NVIDIA's largest scale system with 576 compute chiplets across 144 GPUs. Designed for the most demanding AI and scientific computing workloads requiring exascale performance.</span>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="tooltip">Form factor supported
+                <span class="tooltiptext">The physical configuration and standardized design of the GPU system. Different form factors support various cooling, power, and interconnect requirements for different deployment scenarios.</span>
+            </span>
+          </td>
+          <td colspan="2">
+            <span class="tooltip">HGX
+              <span class="tooltiptext">NVIDIA's server platform for AI training and inference. A standardized board design that hosts multiple GPUs with NVLink interconnect.</span>
+            </span>
+          </td>
+          <td colspan="3">
+            <span class="tooltip">HGX, Oberon
+              <span class="tooltiptext">Expanded form factor support including standard HGX and the Oberon platform, NVIDIA's liquid-cooled supercomputer architecture for multi-GPU systems.</span>
+            </span>
+          </td>
+          <td colspan="2">
+            <span class="tooltip">HGX, Oberon, Kyber
+              <span class="tooltiptext">Full range of form factors including HGX, Oberon, and Kyber - NVIDIA's largest scale supercomputer architecture designed for exascale AI systems.</span>
+            </span>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Number of GPU packages</td>
+          <td colspan="2">8</td>
+          <td>72</td>
+          <td>72</td>
+          <td>16</td>
+          <td>72</td>
+          <td>144</td>
+        </tr>
+        
+        <tr>
+          <td>Number of GPU dies</td>
+          <td colspan="2">8</td>
+          <td>144</td>
+          <td>144</td>
+          <td>16</td>
+          <td>144</td>
+          <td>576</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip">Scale up links
+              <span class="tooltiptext">The physical interconnect technology used to connect multiple GPUs together into a larger system. Higher bandwidth interconnects enable more efficient distributed computing across GPUs.</span>
+            </span>
+          </td>
+          <td colspan="2">
+            <span class="tooltip">UBB (PCB)
+              <span class="tooltiptext">Ultra-Bandwidth Board, a PCB-based interconnect that provides high-speed connections between GPUs within a node.</span>
+            </span>
+          </td>
+          <td>Copper Backplane</td>
+          <td>UBB (PCB)</td>
+          <td>Copper Backplane</td>
+          <td colspan="2">PCB Backplane</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip important">Aggregate FP4 PFLOPs
+              <span class="tooltiptext">Total compute performance across the entire system.</span>
+            </span>
+          </td>
+          <td colspan="2">32*</td>
+          <td>720</td>
+          <td>1,080</td>
+          <td>74</td>
+          <td>3,600</td>
+          <td>14,400</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip important">Aggregate HBM capacity
+                <span class="tooltiptext">Total maximum data transfer rate across the entire system.</span>
+            </span>
+          </td>
+          <td>14 TB</td>
+          <td>14 TB</td>
+          <td>14 TB</td>
+          <td>21 TB</td>
+          <td>64 TB</td>
+          <td>21 TB</td>
+          <td>147 TB</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <span class="tooltip important">Aggregate HBM bandwidth
+                <span class="tooltiptext">The combined memory bandwidth of all GPUs in the system, measured in terabytes per second (TB/s). Higher aggregate bandwidth allows the system to process larger datasets more efficiently.</span>
+            </span>
+          </td>
+          <td>27 TB/s</td>
+          <td>38 TB/s</td>
+          <td>576 TB/s</td>
+          <td>576 TB/s</td>
+          <td>64 TB/s</td>
+          <td>936 TB/s</td>
+          <td>4,608 TB/s</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="source-citation">
+      Source: Semianalysis - NVIDIA GTC 2025 – Built For Reasoning, Vera Rubin, Kyber, CPO, Dynamo Inference, Jensen Math, Feynman.
+      <a target="_blank" href="https://semianalysis.com/2025/03/19/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman/">https://semianalysis.com/2025/03/19/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman/</a>
+    </div>
+  </div>
+  
+  <script>
+    // JavaScript for more advanced tooltip functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tooltips = document.querySelectorAll('.tooltip');
+      
+      tooltips.forEach(tooltip => {
+        tooltip.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Close all other open tooltips
+          document.querySelectorAll('.tooltiptext.active').forEach(tt => {
+            if (tt !== this.querySelector('.tooltiptext')) {
+              tt.classList.remove('active');
+            }
+          });
+          
+          // Toggle this tooltip
+          const tooltipText = this.querySelector('.tooltiptext');
+          tooltipText.classList.toggle('active');
+        });
+      });
+      
+      // Close tooltips when clicking elsewhere
+      document.addEventListener('click', function() {
+        document.querySelectorAll('.tooltiptext.active').forEach(tt => {
+          tt.classList.remove('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
